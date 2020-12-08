@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF4ADF6B-4A0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SjisTextSerializer", "src\SjisTextSerializer\SjisTextSerializer.csproj", "{2825FA7B-2DF4-4A06-A080-E76F26F02834}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A0395774-FBD5-48AD-A20E-2562F2C8F5E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SjisTextSerializer.Tests", "tests\SjisTextSerializer.Tests\SjisTextSerializer.Tests.csproj", "{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,8 +36,21 @@ Global
 		{2825FA7B-2DF4-4A06-A080-E76F26F02834}.Release|x64.Build.0 = Release|Any CPU
 		{2825FA7B-2DF4-4A06-A080-E76F26F02834}.Release|x86.ActiveCfg = Release|Any CPU
 		{2825FA7B-2DF4-4A06-A080-E76F26F02834}.Release|x86.Build.0 = Release|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Debug|x86.Build.0 = Debug|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Release|x64.Build.0 = Release|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2825FA7B-2DF4-4A06-A080-E76F26F02834} = {FF4ADF6B-4A09-4DA3-8994-A96E83B6E110}
+		{177E5988-54D1-4EEF-9DDA-F1E98B6E65DC} = {A0395774-FBD5-48AD-A20E-2562F2C8F5E7}
 	EndGlobalSection
 EndGlobal
