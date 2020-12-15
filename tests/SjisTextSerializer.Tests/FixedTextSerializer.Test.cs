@@ -8,11 +8,11 @@ namespace SjisTextSerializer.Tests
 {
     public class FixedTextSerializerTest
     {
-        private readonly static Encoding SjisEncoding;
+        private readonly static Encoding _sjisEncoding;
         static FixedTextSerializerTest()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            SjisEncoding = Encoding.GetEncoding("Shift_JIS");
+            _sjisEncoding = Encoding.GetEncoding("Shift_JIS");
         }
 
         private Action Serialize<T>(T value) where T : notnull
@@ -39,7 +39,7 @@ namespace SjisTextSerializer.Tests
             };
 
             byte[] result = FixedTextSerializer.Serialize(obj);
-            string actual = new(SjisEncoding.GetChars(result));
+            string actual = new(_sjisEncoding.GetChars(result));
 
             actual.Should().Be(expected);
         }
@@ -58,12 +58,12 @@ namespace SjisTextSerializer.Tests
             };
 
             byte[] result = FixedTextSerializer.Serialize(obj);
-            string actual = new(SjisEncoding.GetChars(result));
+            string actual = new(_sjisEncoding.GetChars(result));
 
             actual.Should().Be("1234567812345678あああああ          ");
         }
 
-        #nullable disable warnings
+#nullable disable warnings
         [FixedText]
         public class TestClass
         {

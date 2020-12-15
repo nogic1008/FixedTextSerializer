@@ -9,14 +9,14 @@ namespace SjisTextSerializer
 {
     public static class FixedTextSerializer
     {
-        private readonly static Encoding SjisEncoding;
+        private readonly static Encoding _sjisEncoding;
         static FixedTextSerializer()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            SjisEncoding = Encoding.GetEncoding("Shift_JIS");
+            _sjisEncoding = Encoding.GetEncoding("Shift_JIS");
         }
 
-        public static byte[] Serialize<T>(T value) where T: notnull
+        public static byte[] Serialize<T>(T value) where T : notnull
         {
             var type = value.GetType();
             if (type.GetCustomAttribute<FixedTextAttribute>() is null)
@@ -35,7 +35,7 @@ namespace SjisTextSerializer
                 if (len is null)
                     continue;
 
-                byte[] propertyBytes = SjisEncoding.GetBytes(property.GetValue(value)?.ToString() ?? "");
+                byte[] propertyBytes = _sjisEncoding.GetBytes(property.GetValue(value)?.ToString() ?? "");
                 if (len.Length < propertyBytes.Length)
                     throw new FormatException();
 
