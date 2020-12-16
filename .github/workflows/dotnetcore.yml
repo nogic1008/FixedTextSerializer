@@ -60,7 +60,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet.sdk }}
 
       - name: Restore
-        run: dotnet restore ./tests/SjisTextSerializer.Tests/SjisTextSerializer.Tests.csproj --locked-mode
+        run: dotnet restore --locked-mode
       - name: Build
         run: dotnet build ./tests/SjisTextSerializer.Tests/SjisTextSerializer.Tests.csproj --no-restore -f ${{ matrix.dotnet.framework }}
       - name: Test
