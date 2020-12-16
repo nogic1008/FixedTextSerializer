@@ -20,7 +20,7 @@ namespace SjisTextSerializer
         {
             var type = value.GetType();
             if (type.GetCustomAttribute<FixedTextAttribute>() is null)
-                throw new InvalidOperationException();
+                throw new InvalidOperationException($"{type.FullName} does not have {nameof(FixedTextAttribute)}.");
 
             var bytes = new List<byte>();
             foreach (var property in type.GetProperties())
@@ -37,7 +37,7 @@ namespace SjisTextSerializer
 
                 byte[] propertyBytes = _sjisEncoding.GetBytes(property.GetValue(value)?.ToString() ?? "");
                 if (len.Length < propertyBytes.Length)
-                    throw new FormatException();
+                    throw new FormatException($"Property \"{property.Name}\" should be up to {len.Length} byte length, but has {propertyBytes} byte length.");
 
                 bytes.AddRange(propertyBytes);
                 if (len.Length > propertyBytes.Length)

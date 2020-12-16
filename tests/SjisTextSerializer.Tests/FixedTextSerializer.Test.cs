@@ -22,11 +22,30 @@ namespace SjisTextSerializer.Tests
         public void Serialize_Throws_InvalidOperationException()
         {
             object obj = new();
-            Serialize(obj).Should().ThrowExactly<InvalidOperationException>();
+            Serialize(obj).Should().ThrowExactly<InvalidOperationException>()
+                .WithMessage("* does not have " + nameof(FixedTextAttribute) + ".");
+        }
+
+        [Theory]
+        [InlineData(1234567890, "aaaaaaaaaa", "bbbbbbbbbb", nameof(TestClass.Id))]
+        [InlineData(12345678, "あああああa", "いいいいい", nameof(TestClass.Name))]
+        [InlineData(12345678, "あああああ", "bbbbbbbbbbb", nameof(TestClass.Remarks))]
+        public void Serialize_Throws_FormatException(int id, string name, string? remarks, string errorParam)
+        {
+            var obj = new TestClass
+            {
+                Id = id,
+                Name = name,
+                Remarks = remarks,
+            };
+            Serialize(obj).Should().ThrowExactly<FormatException>()
+                .WithMessage($"Property \"{errorParam}\"*");
         }
 
         [Theory]
         [InlineData(12345678, "aaaaaaaaaa", "bbbbbbbbbb", "12345678aaaaaaaaaabbbbbbbbbb")]
+        [InlineData(12345678, "aaaaaaaaaa", null, "12345678aaaaaaaaaa          ")]
+        [InlineData(12345678, "aaaaaaaaaa", "", "12345678aaaaaaaaaa          ")]
         [InlineData(1, "a", "b", "1       a         b         ")]
         [InlineData(12345678, "あああああ", "いいいいい", "12345678あああああいいいいい")]
         public void Serialize_Returns_ShiftJis_Encoded_String(int id, string name, string? remarks, string expected)
