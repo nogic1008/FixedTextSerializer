@@ -67,7 +67,7 @@ namespace SjisTextSerializer
         /// <exception cref="ObjectDisposedException">
         ///   The instance of <see cref="FixedTextWriter"/> has been disposed.
         /// </exception>
-         public void Flush()
+        public void Flush()
         {
             if (IsDisposed)
                 throw new ObjectDisposedException(nameof(FixedTextWriter));
@@ -186,7 +186,7 @@ namespace SjisTextSerializer
             if (IsDisposed)
                 throw new ObjectDisposedException(nameof(FixedTextWriter));
 
-            if (stream == null)
+            if (stream is null)
                 throw new ArgumentNullException(nameof(stream));
             if (!stream.CanWrite)
                 throw new ArgumentException(nameof(stream) + " is not writable.", nameof(stream));
@@ -297,7 +297,7 @@ namespace SjisTextSerializer
 
             var output = _memory.Span;
 
-            switch(_options.NewLine)
+            switch (_options.NewLine)
             {
                 case NewLine.Lf:
                     output[BytesPending++] = (byte)'\n';

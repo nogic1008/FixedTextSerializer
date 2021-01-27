@@ -16,6 +16,31 @@ namespace SjisTextSerializer.Tests
             _sjisEncoding = Encoding.GetEncoding("Shift_JIS");
         }
 
+        #region Constractor
+        private Action Constractor(IBufferWriter<byte>? bufferWriter)
+            => () => _ = new FixedTextWriter(bufferWriter!);
+        private Action Constractor(Stream? stream)
+            => () => _ = new FixedTextWriter(stream!);
+
+        [Fact]
+        public void Constractor_Throws_ArgumentNullException_When_BufferWriter_Is_Null()
+            => Constractor((IBufferWriter<byte>?)null)
+                .Should().ThrowExactly<ArgumentNullException>()
+                .WithMessage("*bufferWriter*");
+
+        [Fact]
+        public void Constractor_Throws_ArgumentNullException_When_Stream_Is_Null()
+            => Constractor((Stream?)null)
+                .Should().ThrowExactly<ArgumentNullException>()
+                .WithMessage("*stream*");
+
+        [Fact]
+        public void Constractor_Throws_ArgumentException_When_Stream_Is_ReadOnly()
+            => Constractor(new MemoryStream(Array.Empty<byte>(), writable: false))
+                .Should().ThrowExactly<ArgumentException>()
+                .WithMessage("stream is not writable.*");
+        #endregion
+
         [Theory]
         [InlineData("")]
         [InlineData("foo")]
@@ -46,7 +71,7 @@ namespace SjisTextSerializer.Tests
             // Arrange
             var stream = new MemoryStream();
             var writer = new FixedTextWriter(stream);
-            byte[] source = new byte[]{ 0x43, 0x41, 0x46, 0x45 }; // CAFE
+            byte[] source = new byte[] { 0x43, 0x41, 0x46, 0x45 }; // CAFE
 
             // Act
             writer.WriteRawBytes(source);
@@ -63,7 +88,7 @@ namespace SjisTextSerializer.Tests
             // Arrange
             var buffer = new ArrayBufferWriter<byte>();
             var writer = new FixedTextWriter(buffer);
-            byte[] source = new byte[]{ 0x43, 0x41, 0x46, 0x45 }; // CAFE
+            byte[] source = new byte[] { 0x43, 0x41, 0x46, 0x45 }; // CAFE
 
             // Act
             writer.WriteRawBytes(source);
