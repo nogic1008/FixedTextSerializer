@@ -1,10 +1,10 @@
 using System;
 using System.Text;
 using FluentAssertions;
-using SjisTextSerializer.Serialization;
+using FixedTextSerializer.Serialization;
 using Xunit;
 
-namespace SjisTextSerializer.Tests
+namespace FixedTextSerializer.Tests
 {
     public class FixedTextSerializerTest
     {
