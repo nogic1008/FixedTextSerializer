@@ -1,6 +1,6 @@
 using System;
 
-namespace SjisTextSerializer.Serialization
+namespace FixedTextSerializer.Serialization
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
     public sealed class FixedTextAttribute : Attribute

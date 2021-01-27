@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using SjisTextSerializer.Serialization;
+using FixedTextSerializer.Serialization;
 
-namespace SjisTextSerializer
+namespace FixedTextSerializer
 {
     public static class FixedTextSerializer
     {

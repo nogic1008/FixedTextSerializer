@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../src/SjisTextSerializer/SjisTextSerializer.csproj" />
+    <ProjectReference Include="../../src/FixedTextSerializer/FixedTextSerializer.csproj" />
   </ItemGroup>
 
 </Project>

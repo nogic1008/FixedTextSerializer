@@ -1,10 +1,10 @@
 using System;
 using System.Text;
+using FixedTextSerializer.Serialization;
 using FluentAssertions;
-using SjisTextSerializer.Serialization;
 using Xunit;
 
-namespace SjisTextSerializer.Tests
+namespace FixedTextSerializer.Tests
 {
     public class FixedTextSerializerTest
     {
@@ -102,5 +102,6 @@ namespace SjisTextSerializer.Tests
             public int Id { get; set; }
             public TestClass Parent { get; set; }
         }
+#nullable restore
     }
 }
