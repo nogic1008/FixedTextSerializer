@@ -5,7 +5,7 @@ using System.Text;
 using FluentAssertions;
 using Xunit;
 
-namespace SjisTextSerializer.Tests
+namespace FixedTextSerializer.Tests
 {
     public class FixedTextWriterTest
     {

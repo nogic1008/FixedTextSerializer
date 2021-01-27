@@ -62,9 +62,9 @@ jobs:
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build ./tests/SjisTextSerializer.Tests/SjisTextSerializer.Tests.csproj --no-restore -f ${{ matrix.dotnet.framework }}
+        run: dotnet build ./tests/FixedTextSerializer.Tests/FixedTextSerializer.Tests.csproj --no-restore -f ${{ matrix.dotnet.framework }}
       - name: Test
-        run: dotnet test ./tests/SjisTextSerializer.Tests/SjisTextSerializer.Tests.csproj --no-build -f ${{ matrix.dotnet.framework }} --settings coverlet.runsettings
+        run: dotnet test ./tests/FixedTextSerializer.Tests/FixedTextSerializer.Tests.csproj --no-build -f ${{ matrix.dotnet.framework }} --settings coverlet.runsettings
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1

@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace SjisTextSerializer
+namespace FixedTextSerializer
 {
     public struct FixedTextOptions
     {

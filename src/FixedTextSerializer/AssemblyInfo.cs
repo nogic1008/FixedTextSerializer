@@ -3,5 +3,5 @@ using System.Runtime.CompilerServices;
 
 [assembly: CLSCompliant(true)]
 #if DEBUG
-[assembly: InternalsVisibleTo("SjisTextSerializer.Tests")]
+[assembly: InternalsVisibleTo("FixedTextSerializer.Tests")]
 #endif
