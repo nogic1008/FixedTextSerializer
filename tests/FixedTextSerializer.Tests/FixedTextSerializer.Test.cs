@@ -1,7 +1,7 @@
 using System;
 using System.Text;
-using FluentAssertions;
 using FixedTextSerializer.Serialization;
+using FluentAssertions;
 using Xunit;
 
 namespace FixedTextSerializer.Tests
@@ -102,5 +102,6 @@ namespace FixedTextSerializer.Tests
             public int Id { get; set; }
             public TestClass Parent { get; set; }
         }
+#nullable restore
     }
 }
