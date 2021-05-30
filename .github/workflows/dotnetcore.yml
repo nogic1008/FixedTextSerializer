@@ -47,7 +47,7 @@ jobs:
         dotnet: [ { sdk: "3.1", framework: "netcoreapp3.1" }, { sdk: "5.0", framework: "net5.0" } ]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         with:
           path: ${{ env.NUGET_PACKAGES }}
           key: ${{ runner.os }}-nuget-${{ matrix.dotnet.sdk }}-${{ hashFiles('**/packages.lock.json') }}
