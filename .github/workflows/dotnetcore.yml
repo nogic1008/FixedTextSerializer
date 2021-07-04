@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1.8.1
         with:
           dotnet-version: 3.1
       - name: Restore Tool
@@ -55,7 +55,7 @@ jobs:
             ${{ runner.os }}-nuget-${{ matrix.dotnet.sdk }}-
             ${{ runner.os }}-nuget-
       - name: Setup .NET Core ${{ matrix.dotnet.sdk }} SDK
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1.8.1
         with:
           dotnet-version: ${{ matrix.dotnet.sdk }}
 
